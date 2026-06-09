@@ -61,10 +61,10 @@
 
 <div align="center">
 
-> **[▶ Watch Demo Video](https://files.catbox.moe/7aujtb.mp4)**
+> **[▶ Watch Demo Video](https://files.catbox.moe/7o30ye.mp4)**
 
-<video src="https://files.catbox.moe/7aujtb.mp4" controls width="700" style="border-radius:12px; border: 1px solid #a855f7; box-shadow: 0 0 30px #a855f730;">
-  <a href="https://files.catbox.moe/7aujtb.mp4">Watch the demo video</a>
+<video src="https://files.catbox.moe/7o30ye.mp4" controls width="700" style="border-radius:12px; border: 1px solid #a855f7; box-shadow: 0 0 30px #a855f730;">
+  <a href="https://files.catbox.moe/7o30ye.mp4">Watch the demo video</a>
 </video>
 
 </div>
