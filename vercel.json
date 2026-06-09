@@ -1,0 +1,6 @@
+{
+  "buildCommand": "pnpm --filter @workspace/varnox-wa-report run build",
+  "outputDirectory": "artifacts/varnox-wa-report/dist/public",
+  "installCommand": "pnpm install",
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
