@@ -34,13 +34,22 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-const WHATSAPP_REPORT_EMAILS = [
-  "will.cathcart@whatsapp.com",
-  "privacy@whatsapp.com",
-  "smb_web@support.whatsapp.com",
-  "security@whatsapp.com",
-  "business-support@whatsapp.com",
-  "support@whatsapp.com",
+const REPORT_EMAILS = [
+  "varnoxnovark@gmail.com",
+  "smashsouare82@gmail.com",
+  "techowner90@gmail.com",
+  "xdbotnovark@gmail.com",
+  "overn2443@gmail.com",
+  "systemmed89@gmail.com",
+  "catbox223@gmail.com",
+  "deathvarnoxprims@gmail.com",
+  "vortexiabarry@gmail.com",
+  "alphonsebarry093@gmail.com",
+  "sresouare@gmail.com",
+  "cmmah7459@gmail.com",
+  "mohamedvarnoxornovark@gmail.com",
+  "mohamedsoumahv@gmail.com",
+  "santanafamille50@gmail.com",
 ].join(",");
 
 const SOCIAL_LINKS = [
@@ -103,25 +112,31 @@ export default function Home() {
       other: "Other",
     };
     const subject = encodeURIComponent(
-      `[VARNOX WA REPORT] Suspicious Activity — ${data.targetNumber}`
+      `[BAN REQUEST] ${data.targetNumber}`
     );
     const body = encodeURIComponent(
-      `VARNOX WA REPORT — Suspicious WhatsApp Activity
-================================================
+`════════════════════════════════════
+        SPAM BAN REQUEST
+════════════════════════════════════
 
-TARGET NUMBER : ${data.targetNumber}
-REASON        : ${reasonLabels[data.reason] ?? data.reason}
+  PLATFORM     : WhatsApp
+  TARGET NUMBER: ${data.targetNumber}
+  REASON       : ${reasonLabels[data.reason] ?? data.reason}
 
-DETAILS
--------
+════════════════════════════════════
+              DETAILS
+════════════════════════════════════
+
 ${data.details}
 
-------------------------------------------------
-Submitted via VARNOX WA REPORT
-https://github.com/Med12-q/VARNOX-WA-REPORT`
+════════════════════════════════════
+  This number has been reported for
+  violating WhatsApp Terms of Service.
+  Immediate action is requested.
+════════════════════════════════════`
     );
     window.open(
-      `mailto:${WHATSAPP_REPORT_EMAILS}?subject=${subject}&body=${body}`,
+      `mailto:${REPORT_EMAILS}?subject=${subject}&body=${body}`,
       "_blank"
     );
     setTimeout(() => setIsSubmitted(true), 400);
