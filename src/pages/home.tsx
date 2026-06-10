@@ -3,8 +3,9 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { Send, UploadCloud, ShieldAlert, CheckCircle2, Shield, Mail } from "lucide-react";
+import { Send, UploadCloud, ShieldAlert, CheckCircle2, Shield, Mail, FileText } from "lucide-react";
 import { FaGithub, FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
+import { Link } from "wouter";
 
 import { Button } from "@/components/ui/button";
 import {
@@ -370,6 +371,50 @@ ${data.details}
               </AnimatePresence>
             </CardContent>
           </Card>
+        </motion.div>
+
+        {/* ── Get Ban TXT ── */}
+        <motion.div variants={itemVariants} className="w-full max-w-2xl">
+          <Link href="/ban-texts">
+            <div
+              className="w-full rounded-xl p-5 flex items-center justify-between gap-4 cursor-pointer transition-all duration-300 group"
+              style={{
+                background: "hsl(190 100% 60% / 0.05)",
+                border: "1px solid hsl(190 100% 60% / 0.2)",
+                boxShadow: "0 0 20px -8px hsl(190 100% 60% / 0.2)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.background = "hsl(190 100% 60% / 0.1)";
+                (e.currentTarget as HTMLDivElement).style.border = "1px solid hsl(190 100% 60% / 0.4)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 28px -6px hsl(190 100% 60% / 0.35)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.background = "hsl(190 100% 60% / 0.05)";
+                (e.currentTarget as HTMLDivElement).style.border = "1px solid hsl(190 100% 60% / 0.2)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 20px -8px hsl(190 100% 60% / 0.2)";
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <div
+                  className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: "hsl(190 100% 60% / 0.1)", border: "1px solid hsl(190 100% 60% / 0.3)" }}
+                >
+                  <FileText className="w-5 h-5 text-secondary" />
+                </div>
+                <div>
+                  <p className="font-display text-sm font-semibold text-white tracking-wider">
+                    GET BAN TEXTS
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Download ready-to-use ban request scripts
+                  </p>
+                </div>
+              </div>
+              <span className="text-secondary/70 group-hover:text-secondary text-xs font-display tracking-widest transition-colors">
+                VIEW →
+              </span>
+            </div>
+          </Link>
         </motion.div>
 
         {/* ── Footer ── */}
