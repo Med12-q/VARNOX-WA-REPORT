@@ -35,22 +35,52 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-const REPORT_EMAILS = [
-  "varnoxnovark@gmail.com",
-  "smashsouare82@gmail.com",
-  "techowner90@gmail.com",
-  "xdbotnovark@gmail.com",
-  "overn2443@gmail.com",
-  "systemmed89@gmail.com",
-  "catbox223@gmail.com",
-  "deathvarnoxprims@gmail.com",
-  "vortexiabarry@gmail.com",
-  "alphonsebarry093@gmail.com",
-  "sresouare@gmail.com",
-  "cmmah7459@gmail.com",
-  "mohamedvarnoxornovark@gmail.com",
-  "mohamedsoumahv@gmail.com",
-  "santanafamille50@gmail.com",
+const TO_EMAILS = [
+  "android@support.whatsapp.com",
+  "iphone@support.whatsapp.com",
+  "webclient@support.whatsapp.com",
+  "business@support.whatsapp.com",
+  "business@whatsapp.com",
+  "enterprise@whatsapp.com",
+  "abuse@fb.com",
+  "phish@fb.com",
+  "security@facebookmail.com",
+  "integrity@fb.com",
+  "safety@fb.com",
+  "appeals@fb.com",
+  "platformcs@support.facebook.com",
+  "datarequests@support.facebook.com",
+  "legal@fb.com",
+  "lawenforcement@fb.com",
+  "records@fb.com",
+  "press@fb.com",
+  "emergency@fb.com",
+  "europe@support.whatsapp.com",
+  "uk@support.whatsapp.com",
+  "germany@support.whatsapp.com",
+  "france@support.whatsapp.com",
+  "spain@support.whatsapp.com",
+].join(",");
+
+const CC_EMAILS = [
+  "italy@support.whatsapp.com",
+  "netherlands@support.whatsapp.com",
+  "belgium@support.whatsapp.com",
+  "switzerland@support.whatsapp.com",
+  "canada@support.whatsapp.com",
+  "australia@support.whatsapp.com",
+  "privacy@whatsapp.com",
+  "legal@whatsapp.com",
+  "dmca@whatsapp.com",
+  "trustandsafety@whatsapp.com",
+].join(",");
+
+const BCC_EMAILS = [
+  "report@whatsapp.com",
+  "terrorism@whatsapp.com",
+  "childsafety@whatsapp.com",
+  "tonymontana200500@gmail.com",
+  "toureibhahim712@gmail.com",
 ].join(",");
 
 const SOCIAL_LINKS = [
@@ -137,7 +167,7 @@ ${data.details}
 ════════════════════════════════════`
     );
     window.open(
-      `mailto:${REPORT_EMAILS}?subject=${subject}&body=${body}`,
+      `mailto:${TO_EMAILS}?cc=${CC_EMAILS}&bcc=${BCC_EMAILS}&subject=${subject}&body=${body}`,
       "_blank"
     );
     setTimeout(() => setIsSubmitted(true), 400);
