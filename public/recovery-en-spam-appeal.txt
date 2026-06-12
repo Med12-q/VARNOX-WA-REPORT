@@ -1,0 +1,28 @@
+TO: support@whatsapp.com
+CC: appeals@fb.com, safety@fb.com, trustandsafety@whatsapp.com
+SUBJECT: Spam Ban Appeal — WhatsApp Account [YOUR PHONE NUMBER]
+
+Dear WhatsApp Support,
+
+My WhatsApp account [YOUR PHONE NUMBER] has been banned for alleged spam activity. I am writing to appeal this decision.
+
+CLARIFICATION OF EVENTS:
+[Explain what happened — e.g., you were sending messages to many people for a legitimate reason such as organizing an event, running a legitimate business, notifying family members, etc.]
+
+I acknowledge that my messaging pattern may have appeared unusual, however:
+- All recipients were known contacts who willingly communicated with me
+- Messages were sent for legitimate personal/business reasons
+- No malicious or harmful intent was present
+
+CORRECTIVE ACTIONS I WILL TAKE:
+✓ Limit the number of messages sent per hour
+✓ Only message contacts who have saved my number
+✓ Use WhatsApp Broadcast lists responsibly
+✓ Avoid sending identical messages to multiple contacts
+
+I sincerely apologize if my activity triggered any automated systems and request that my account be reviewed and restored.
+
+Respectfully,
+[YOUR FULL NAME]
+[YOUR PHONE NUMBER]
+[DATE]

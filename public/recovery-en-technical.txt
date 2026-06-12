@@ -1,0 +1,31 @@
+TO: support@whatsapp.com
+CC: appeals@fb.com, safety@fb.com
+SUBJECT: Technical Issue — Account Banned Due to System Error — [YOUR PHONE NUMBER]
+
+Dear WhatsApp Technical Support Team,
+
+I am reaching out regarding a technical issue that has resulted in the erroneous banning of my WhatsApp account: [YOUR PHONE NUMBER].
+
+TECHNICAL DETAILS:
+- Phone Number: [+XX XXXXXXXXXX]
+- Device: [DEVICE MODEL] running [OS VERSION]
+- WhatsApp Version: [APP VERSION]
+- Country/Region: [YOUR COUNTRY]
+- Network Provider: [YOUR CARRIER]
+
+DESCRIPTION OF ISSUE:
+[Describe the technical situation — e.g., switched phones, restored from backup, changed SIM cards, account was logged into multiple devices, etc.]
+
+I believe the ban was triggered by an automated system misinterpreting my normal account activity as suspicious. Possible causes include:
+□ Phone number recently transferred to a new device
+□ WhatsApp restored from a cloud backup
+□ SIM card change or network switch
+□ Login from a new or different location
+
+REQUEST:
+I kindly request that your technical team manually review my account logs and lift the erroneous ban.
+
+Thank you for your technical assistance.
+
+[YOUR FULL NAME]
+[YOUR EMAIL]

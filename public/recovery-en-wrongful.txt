@@ -1,0 +1,32 @@
+TO: support@whatsapp.com
+CC: appeals@fb.com, integrity@fb.com, legal@fb.com
+SUBJECT: Wrongful Account Ban Appeal — WhatsApp Number [YOUR PHONE NUMBER]
+
+Dear WhatsApp Trust & Safety Team,
+
+I am formally appealing the wrongful termination of my WhatsApp account linked to phone number: [YOUR PHONE NUMBER].
+
+GROUNDS FOR APPEAL:
+I firmly believe my account was banned due to one or more of the following erroneous reasons:
+1. Reported by bad actors / malicious users targeting my account
+2. Automated system error / false positive detection
+3. Misidentification of legitimate communication as spam
+
+EVIDENCE OF COMPLIANCE:
+- I use WhatsApp exclusively for personal/business communication
+- I have never used third-party WhatsApp modifications
+- I have never sent unsolicited messages in bulk
+- All my communications have been with consenting contacts
+
+ACCOUNT DETAILS:
+- Phone Number: [+XX XXXXXXXXXX]
+- Country: [YOUR COUNTRY]
+- Account Age: [YEARS / MONTHS]
+- Last Active: [DATE]
+
+I request a thorough manual review of my account by a human agent and respectfully ask for the ban to be lifted.
+
+Formally submitted by,
+[YOUR FULL NAME]
+[YOUR EMAIL]
+[DATE]

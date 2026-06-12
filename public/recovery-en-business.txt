@@ -1,0 +1,29 @@
+TO: support@whatsapp.com, business@whatsapp.com
+CC: enterprise@whatsapp.com, appeals@fb.com
+SUBJECT: WhatsApp Business Account Recovery — [YOUR BUSINESS NUMBER]
+
+Dear WhatsApp Business Support Team,
+
+I am the authorized representative of [BUSINESS/COMPANY NAME] and I am writing to request the recovery of our WhatsApp Business account associated with the phone number: [YOUR BUSINESS NUMBER].
+
+Our business relies heavily on WhatsApp Business for customer communication, support, and transactions. The sudden ban has severely impacted our operations.
+
+BUSINESS ACCOUNT INFORMATION:
+- Business Name: [YOUR BUSINESS NAME]
+- Phone Number: [+XX XXXXXXXXXX]
+- Business Type: [RETAIL / SERVICE / OTHER]
+- Country: [YOUR COUNTRY]
+- WhatsApp Business API: [YES / NO]
+- Monthly Active Customers: [APPROXIMATE NUMBER]
+
+REASON FOR APPEAL:
+We have complied with all WhatsApp Business policies and have not engaged in any prohibited activities. Our account was in good standing prior to the ban.
+
+We request immediate review and reinstatement of our account to minimize business disruption.
+
+Respectfully submitted,
+[YOUR FULL NAME]
+[YOUR TITLE / POSITION]
+[BUSINESS NAME]
+[BUSINESS EMAIL]
+[BUSINESS WEBSITE]

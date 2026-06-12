@@ -1,0 +1,13 @@
+TO: support@whatsapp.com
+SUBJECT: Account Recovery — [YOUR PHONE NUMBER]
+
+Hello WhatsApp Support,
+
+My account [YOUR PHONE NUMBER] was banned. I believe this was an error. Please review and restore my account.
+
+Name: [YOUR NAME]
+Country: [YOUR COUNTRY]
+Device: [YOUR DEVICE]
+
+Thank you.
+[YOUR NAME]

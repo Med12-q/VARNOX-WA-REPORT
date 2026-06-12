@@ -1,0 +1,22 @@
+PARA: support@whatsapp.com
+CC: appeals@fb.com, safety@fb.com
+ASUNTO: Solicitud de recuperación de cuenta WhatsApp — [TU NÚMERO]
+
+Estimado Equipo de Soporte de WhatsApp,
+
+Me dirijo a ustedes para solicitar el restablecimiento de mi cuenta de WhatsApp asociada al número de teléfono: [TU NÚMERO CON CÓDIGO DE PAÍS].
+
+Mi cuenta fue recientemente suspendida o restringida, y creo que esta acción pudo haberse tomado por error. Soy usuario fiel de WhatsApp y siempre he cumplido con sus Términos de Servicio y Normas Comunitarias.
+
+DETALLES DE LA CUENTA:
+- Número de teléfono: [+XX XXXXXXXXXX]
+- País: [TU PAÍS]
+- Modelo de dispositivo: [TU DISPOSITIVO]
+- Sistema operativo: [Android / iOS]
+
+Solicito respetuosamente que su equipo revise la actividad de mi cuenta y considere restablecer mi acceso. Me comprometo a continuar utilizando la plataforma de manera responsable.
+
+Gracias por su tiempo y asistencia.
+
+Atentamente,
+[TU NOMBRE COMPLETO]

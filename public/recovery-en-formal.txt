@@ -1,0 +1,35 @@
+TO: legal@whatsapp.com, support@whatsapp.com
+CC: appeals@fb.com, datarequests@support.facebook.com
+SUBJECT: Formal Account Reinstatement Request — [YOUR PHONE NUMBER] — [DATE]
+
+To Whom It May Concern at WhatsApp Inc.,
+
+Re: Formal Request for Account Reinstatement
+Account: [YOUR PHONE NUMBER WITH COUNTRY CODE]
+Date of Suspension: [DATE]
+Reference: [Any reference number if provided]
+
+I, [YOUR FULL NAME], hereby formally request the reinstatement of my WhatsApp account as detailed above.
+
+1. BACKGROUND
+My account was suspended on approximately [DATE]. I received notification stating [describe the message shown, e.g., "This account is not allowed to use WhatsApp"].
+
+2. GROUNDS FOR REINSTATEMENT
+a) I have not violated WhatsApp's Terms of Service (Version [latest])
+b) The suspension appears to be based on erroneous automated detection
+c) No prior warnings or notices were issued before the ban
+
+3. RELIEF REQUESTED
+I respectfully request that WhatsApp Inc.:
+- Conduct a manual review of my account
+- Reinstate my account with immediate effect
+- Provide reasoning for the original suspension
+
+4. DECLARATION
+I declare that all information provided in this letter is true and accurate to the best of my knowledge.
+
+Yours faithfully,
+[YOUR FULL NAME]
+[ADDRESS / COUNTRY]
+[EMAIL ADDRESS]
+[DATE]

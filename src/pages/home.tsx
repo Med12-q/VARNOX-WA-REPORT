@@ -403,6 +403,54 @@ ${data.details}
           </Card>
         </motion.div>
 
+        {/* ── WA Recovery button ── */}
+        <motion.div variants={itemVariants} className="w-full max-w-2xl">
+          <Link href="/recovery">
+            <div
+              className="w-full rounded-xl p-5 flex items-center justify-between gap-4 cursor-pointer transition-all duration-300 group"
+              style={{
+                background: "hsl(142 72% 45% / 0.05)",
+                border: "1px solid hsl(142 72% 45% / 0.22)",
+                boxShadow: "0 0 20px -8px hsl(142 72% 45% / 0.2)",
+              }}
+              onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.background = "hsl(142 72% 45% / 0.1)";
+                (e.currentTarget as HTMLDivElement).style.border = "1px solid hsl(142 72% 45% / 0.45)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 28px -6px hsl(142 72% 45% / 0.4)";
+              }}
+              onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.background = "hsl(142 72% 45% / 0.05)";
+                (e.currentTarget as HTMLDivElement).style.border = "1px solid hsl(142 72% 45% / 0.22)";
+                (e.currentTarget as HTMLDivElement).style.boxShadow = "0 0 20px -8px hsl(142 72% 45% / 0.2)";
+              }}
+            >
+              <div className="flex items-center gap-4">
+                <div
+                  className="w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0"
+                  style={{ background: "hsl(142 72% 45% / 0.1)", border: "1px solid hsl(142 72% 45% / 0.3)" }}
+                >
+                  <svg viewBox="0 0 100 100" className="w-6 h-6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="50" cy="50" r="50" fill="hsl(142 72% 45%)" fillOpacity="0.9"/>
+                    <path d="M50 15C30.7 15 15 30.7 15 50c0 6.2 1.7 12 4.6 17L15 85l18.4-4.8C38.2 82.9 44 84.5 50 84.5 69.3 84.5 85 68.8 85 49.5S69.3 15 50 15z" fill="white"/>
+                    <path d="M65.4 57.6c-.9-.4-5.2-2.5-6-2.8-.8-.3-1.4-.4-2 .4-.6.8-2.3 2.8-2.8 3.4-.5.6-1 .7-1.9.2-.9-.4-3.8-1.4-7.2-4.4-2.7-2.4-4.5-5.3-5-6.2-.5-.9-.1-1.4.4-1.8.4-.4.9-1 1.3-1.5.4-.5.6-.9.9-1.5.3-.6.1-1.1-.1-1.5-.2-.4-2-4.8-2.7-6.6-.7-1.7-1.5-1.5-2-.1-.5 1.3-.5 2.6-.5 3.9 0 1.2.4 2.5 1.2 3.5.8 1 4.4 7 10.6 9.8 6.3 2.8 6.3 1.9 7.4 1.8 1.1-.1 3.6-1.5 4.1-2.9.5-1.4.5-2.6.4-2.8-.2-.2-.8-.4-1.1-.6z" fill="hsl(145 30% 4%)"/>
+                  </svg>
+                </div>
+                <div>
+                  <p className="font-display text-sm font-semibold tracking-wider" style={{ color: "hsl(142 72% 65%)" }}>
+                    𝗩𝗔𝗥𝗡𝗢𝗫.𝗪𝗔 𝗥𝗘𝗖𝗢𝗩𝗘𝗥𝗬
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-0.5">
+                    Recover a banned or restricted WhatsApp account
+                  </p>
+                </div>
+              </div>
+              <span className="text-xs font-display tracking-widest transition-colors" style={{ color: "hsl(142 72% 45% / 0.7)" }}>
+                OPEN →
+              </span>
+            </div>
+          </Link>
+        </motion.div>
+
         {/* ── Get Ban TXT ── */}
         <motion.div variants={itemVariants} className="w-full max-w-2xl">
           <Link href="/ban-texts">

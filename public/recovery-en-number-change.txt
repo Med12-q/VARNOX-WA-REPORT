@@ -1,0 +1,36 @@
+TO: support@whatsapp.com
+CC: appeals@fb.com
+SUBJECT: Account Recovery After Number Change — [OLD NUMBER] → [NEW NUMBER]
+
+Dear WhatsApp Support Team,
+
+I am writing to request assistance with recovering my WhatsApp account following a phone number change.
+
+SITUATION:
+My previous WhatsApp account was linked to: [OLD PHONE NUMBER]
+I am now using the new number: [NEW PHONE NUMBER]
+
+During the number transfer process, my account was either:
+□ Suspended automatically due to the change
+□ Lost access to all chats and data
+□ Banned before I could complete the number change process
+
+WHAT I NEED:
+1. Transfer of my account data from [OLD NUMBER] to [NEW NUMBER]
+2. Reinstatement of any suspended access
+3. Recovery of chat history and media if possible
+
+OLD NUMBER DETAILS:
+- Number: [+XX OLD NUMBER]
+- Country: [COUNTRY]
+- Last Active: [DATE]
+
+NEW NUMBER DETAILS:
+- Number: [+XX NEW NUMBER]
+- Country: [COUNTRY]
+
+I look forward to your assistance in resolving this matter.
+
+Best regards,
+[YOUR FULL NAME]
+[YOUR EMAIL]
