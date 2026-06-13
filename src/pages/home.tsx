@@ -3,14 +3,10 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import {
-  Send, UploadCloud, ShieldAlert, CheckCircle2, Mail,
-  FileText, RefreshCw, Github, Activity,
-} from "lucide-react";
-import { FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
+import { Send, UploadCloud, ShieldAlert, CheckCircle2, Mail, FileText } from "lucide-react";
+import { FaGithub, FaWhatsapp, FaTelegramPlane } from "react-icons/fa";
 import { Link } from "wouter";
 
-import { Button } from "@/components/ui/button";
 import {
   Form, FormControl, FormField, FormItem, FormLabel, FormMessage,
 } from "@/components/ui/form";
@@ -20,7 +16,7 @@ import {
   Select, SelectContent, SelectItem, SelectTrigger, SelectValue,
 } from "@/components/ui/select";
 
-/* ──────────────────────────────────────────────── constants */
+/* ── emails ──────────────────────────────────────────────── */
 const TO_EMAILS = [
   "android@support.whatsapp.com","iphone@support.whatsapp.com",
   "webclient@support.whatsapp.com","business@support.whatsapp.com",
@@ -47,10 +43,10 @@ const BCC_EMAILS = [
 ].join(",");
 
 const SOCIAL = [
-  { href:"https://github.com/Med12-q/VARNOX-WA-REPORT", label:"GitHub",   Icon: Github },
+  { href:"https://github.com/Med12-q/VARNOX-WA-REPORT",      label:"GitHub",   Icon: FaGithub },
   { href:"https://whatsapp.com/channel/0029Vb83R524SpkBdSM6Ob2F", label:"WhatsApp", Icon: FaWhatsapp },
-  { href:"https://t.me/varnox_official", label:"Telegram", Icon: FaTelegramPlane },
-  { href:"mailto:varnoxnovark@gmail.com", label:"Email", Icon: Mail },
+  { href:"https://t.me/varnox_official",                      label:"Telegram", Icon: FaTelegramPlane },
+  { href:"mailto:varnoxnovark@gmail.com",                     label:"Email",    Icon: Mail },
 ];
 
 const formSchema = z.object({
@@ -60,10 +56,10 @@ const formSchema = z.object({
 });
 type FV = z.infer<typeof formSchema>;
 
-const fade  = { hidden:{opacity:0,y:20}, visible:{opacity:1,y:0,transition:{duration:.55,ease:[.22,1,.36,1]}} };
-const stagger = { hidden:{opacity:0}, visible:{opacity:1,transition:{staggerChildren:.14}} };
+const fade    = { hidden:{opacity:0,y:22}, visible:{opacity:1,y:0,transition:{duration:.6,ease:[.22,1,.36,1]}} };
+const stagger = { hidden:{opacity:0}, visible:{opacity:1,transition:{staggerChildren:.13}} };
 
-/* ──────────────────────────────────────────────── component */
+/* ──────────────────────────────────────────────────────── */
 export default function Home() {
   const [submitted, setSubmitted] = useState(false);
   const [fileName, setFileName]   = useState<string|null>(null);
@@ -89,13 +85,9 @@ export default function Home() {
   TARGET NUMBER: ${d.targetNumber}
   REASON       : ${labels[d.reason]??d.reason}
 ════════════════════════════════════
-              DETAILS
-════════════════════════════════════
 ${d.details}
 ════════════════════════════════════
-  This number has been reported for
-  violating WhatsApp Terms of Service.
-  Immediate action is requested.
+  Immediate action requested.
 ════════════════════════════════════`);
     window.open(
       `mailto:${TO_EMAILS}?cc=${CC_EMAILS}&bcc=${BCC_EMAILS}&subject=${sub}&body=${body}`,
@@ -106,109 +98,124 @@ ${d.details}
 
   return (
     <div className="min-h-[100dvh] w-full flex flex-col items-center pb-16 px-4 sm:px-6"
-      style={{ background:"#07040f" }}>
+      style={{ background: "#07040f" }}>
 
       {/* ambient blobs */}
-      <div className="pointer-events-none fixed inset-0 overflow-hidden z-0">
-        <div style={{ position:"absolute",top:"-20%",left:"-10%",width:"55%",height:"55%",
-          borderRadius:"50%",background:"hsl(280 100% 60%/0.07)",filter:"blur(120px)" }} />
-        <div style={{ position:"absolute",bottom:"-20%",right:"-10%",width:"50%",height:"50%",
-          borderRadius:"50%",background:"hsl(220 80% 60%/0.05)",filter:"blur(120px)" }} />
+      <div className="pointer-events-none fixed inset-0 overflow-hidden z-0" aria-hidden>
+        <div style={{ position:"absolute", top:"-25%", left:"-15%", width:"60%", height:"60%",
+          borderRadius:"50%", background:"hsl(280 100%55%/0.08)", filter:"blur(130px)" }} />
+        <div style={{ position:"absolute", bottom:"-20%", right:"-10%", width:"50%", height:"50%",
+          borderRadius:"50%", background:"hsl(260 80%55%/0.05)", filter:"blur(110px)" }} />
       </div>
 
-      <motion.div className="relative z-10 w-full max-w-xl flex flex-col gap-6 pt-12"
+      <motion.div className="relative z-10 w-full max-w-xl flex flex-col gap-6 pt-10"
         variants={stagger} initial="hidden" animate="visible">
 
         {/* ── HEADER ── */}
-        <motion.div variants={fade} className="flex flex-col items-center gap-3 text-center">
-          <div className="flex items-center gap-2 px-3 py-1 rounded-full mb-1"
-            style={{ background:"hsl(280 100%60%/0.1)", border:"1px solid hsl(280 100%60%/0.25)" }}>
-            <ShieldAlert className="w-3.5 h-3.5" style={{color:"hsl(280 100%75%)"}}/>
-            <span className="text-[10px] font-display tracking-[0.3em] uppercase"
-              style={{color:"hsl(280 100%75%)"}}>WhatsApp Enforcement</span>
+        <motion.div variants={fade} className="flex flex-col items-center gap-2 text-center">
+          <div className="flex items-center gap-3">
+            <ShieldAlert className="w-8 h-8 sm:w-9 sm:h-9 drop-shadow-lg"
+              style={{ color:"hsl(280 100%72%)", filter:"drop-shadow(0 0 12px hsl(280 100%72%/0.7))" }}/>
+            <h1 className="font-display font-black tracking-tight leading-none"
+              style={{ fontSize:"clamp(2rem,9vw,3.4rem)",
+                background:"linear-gradient(135deg,#fff 0%,hsl(280,100%,82%) 45%,hsl(270,100%,68%) 100%)",
+                WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent",
+                filter:"drop-shadow(0 0 24px hsl(280 100%70%/0.35))" }}>
+              VARNOX
+            </h1>
           </div>
-          <h1 className="font-display font-black uppercase leading-none"
-            style={{ fontSize:"clamp(2rem,8vw,3.2rem)",
-              background:"linear-gradient(135deg,#fff 0%,hsl(280,100%,80%) 50%,hsl(280,100%,60%) 100%)",
-              WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent",
-              filter:"drop-shadow(0 0 30px hsl(280 100%70%/0.3))" }}>
-            VARNOX
-            <span style={{ display:"block",fontSize:"0.45em",letterSpacing:"0.55em",
-              color:"hsl(280 100%75%)", WebkitTextFillColor:"hsl(280 100%75%)", paddingLeft:"0.55em" }}>
-              WA REPORT
-            </span>
-          </h1>
-          <p className="text-sm" style={{color:"hsl(280 60%70%/0.55)",letterSpacing:"0.05em"}}>
+          <p className="font-display font-bold tracking-[0.35em] uppercase"
+            style={{ fontSize:"clamp(0.65rem,3vw,0.85rem)", color:"hsl(280 60%75%)",
+              letterSpacing:"0.5em" }}>
+            WA REPORT
+          </p>
+          <p className="text-sm font-medium mt-1" style={{ color:"hsl(185 90%60%)", letterSpacing:"0.04em" }}>
             Report suspicious WhatsApp activity securely
           </p>
         </motion.div>
 
         {/* ── VIDEO ── */}
         <motion.div variants={fade} className="w-full rounded-2xl overflow-hidden"
-          style={{ boxShadow:"0 0 0 1px hsl(280 100%60%/0.2), 0 20px 60px -20px hsl(280 100%60%/0.25)" }}>
-          <div className="relative w-full" style={{ paddingBottom:"52%" }}>
-            <video src="https://files.catbox.moe/plmzmw.mp4"
+          style={{
+            border:"1.5px solid hsl(280 100%60%/0.3)",
+            boxShadow:"0 0 0 1px hsl(280 100%60%/0.08), 0 0 40px -8px hsl(280 100%60%/0.35), inset 0 0 0 1px rgba(255,255,255,0.03)",
+          }}>
+          <div className="relative w-full" style={{ paddingBottom:"56.25%" }}>
+            <video
+              src="https://files.catbox.moe/plmzmw.mp4"
               autoPlay muted loop playsInline
-              style={{ position:"absolute",inset:0,width:"100%",height:"100%",objectFit:"cover",display:"block" }}
+              style={{ position:"absolute", inset:0, width:"100%", height:"100%", objectFit:"cover", display:"block" }}
             />
-            <div style={{ position:"absolute",inset:0,
-              background:"linear-gradient(to bottom,transparent 50%,#07040f 100%)" }} />
+            {/* subtle bottom fade into bg */}
+            <div style={{ position:"absolute", bottom:0, left:0, right:0, height:"30%",
+              background:"linear-gradient(to bottom,transparent,#07040f 95%)" }} />
           </div>
         </motion.div>
 
         {/* ── FORM CARD ── */}
         <motion.div variants={fade} className="w-full rounded-2xl overflow-hidden"
-          style={{ background:"rgba(255,255,255,0.025)", backdropFilter:"blur(24px)",
-            border:"1px solid rgba(255,255,255,0.07)",
-            boxShadow:"0 0 40px -15px hsl(280 100%60%/0.2), inset 0 1px 0 rgba(255,255,255,0.06)" }}>
-
+          style={{
+            background:"rgba(20,10,35,0.6)",
+            backdropFilter:"blur(28px)",
+            border:"1px solid hsl(280 100%60%/0.12)",
+            boxShadow:"0 0 50px -20px hsl(280 100%60%/0.15), inset 0 1px 0 rgba(255,255,255,0.05)",
+          }}>
           <div className="p-6 sm:p-8">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-1.5 h-5 rounded-full" style={{background:"hsl(280 100%70%)"}} />
-              <span className="font-display text-[11px] tracking-[0.3em] uppercase font-semibold"
-                style={{color:"hsl(280 100%75%)"}}>Submit a Report</span>
-              <div className="ml-auto flex items-center gap-1.5 px-2 py-0.5 rounded-full"
-                style={{background:"hsl(280 100%60%/0.1)",border:"1px solid hsl(280 100%60%/0.2)"}}>
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{background:"hsl(280 100%75%)"}}/>
-                <span className="text-[9px] font-display tracking-widest" style={{color:"hsl(280 100%75%)"}}>39 RECIPIENTS</span>
+
+            {/* card header */}
+            <div className="flex items-center gap-2.5 mb-7">
+              <div className="w-5 h-5 rounded-full flex items-center justify-center"
+                style={{ background:"hsl(280 100%70%/0.15)", border:"1px solid hsl(280 100%70%/0.4)" }}>
+                <ShieldAlert className="w-3 h-3" style={{ color:"hsl(280 100%78%)" }}/>
+              </div>
+              <span className="font-display text-xs font-bold tracking-[0.3em] uppercase"
+                style={{ color:"hsl(280 100%78%)" }}>Submit a Report</span>
+              <div className="ml-auto flex items-center gap-1.5 px-2.5 py-1 rounded-full"
+                style={{ background:"hsl(280 100%60%/0.08)", border:"1px solid hsl(280 100%60%/0.2)" }}>
+                <span className="w-1.5 h-1.5 rounded-full animate-pulse"
+                  style={{ background:"hsl(280 100%75%)" }}/>
+                <span className="text-[9px] font-display tracking-[0.25em]"
+                  style={{ color:"hsl(280 100%78%)" }}>39 RECIPIENTS</span>
               </div>
             </div>
 
             <AnimatePresence mode="wait">
               {!submitted ? (
-                <motion.div key="form" initial={{opacity:1}} exit={{opacity:0,y:-10}}>
+                <motion.div key="form" initial={{opacity:1}} exit={{opacity:0,y:-8}}>
                   <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
 
+                      {/* TARGET NUMBER */}
                       <FormField control={form.control} name="targetNumber" render={({field})=>(
                         <FormItem>
-                          <FormLabel className="text-[10px] font-display tracking-[0.25em] uppercase"
-                            style={{color:"hsl(280 60%70%/0.7)"}}>Target Number</FormLabel>
+                          <FormLabel className="text-[10px] font-display tracking-[0.28em] uppercase"
+                            style={{ color:"hsl(280 60%72%/0.7)" }}>Target Number</FormLabel>
                           <FormControl>
-                            <Input {...field} placeholder="+224 XXX XXX XXX"
-                              className="h-11 border-0 font-mono text-sm text-white placeholder:text-white/15"
-                              style={{background:"rgba(255,255,255,0.04)",
-                                boxShadow:"inset 0 0 0 1px rgba(255,255,255,0.08)"}}
-                              onFocus={e=>{e.currentTarget.style.boxShadow="inset 0 0 0 1.5px hsl(280 100%70%/0.5), 0 0 16px -4px hsl(280 100%70%/0.2)"}}
-                              onBlur={e=>{e.currentTarget.style.boxShadow="inset 0 0 0 1px rgba(255,255,255,0.08)"}} />
+                            <Input {...field} placeholder="+224 669 28 83 32"
+                              className="h-12 border-0 font-mono text-sm text-white placeholder:text-white/20 rounded-xl"
+                              style={{ background:"rgba(255,255,255,0.05)",
+                                boxShadow:"inset 0 0 0 1px rgba(255,255,255,0.07)" }}
+                              onFocus={e=>{ e.currentTarget.style.boxShadow="inset 0 0 0 1.5px hsl(280 100%70%/0.45), 0 0 18px -6px hsl(280 100%70%/0.25)" }}
+                              onBlur={e=>{ e.currentTarget.style.boxShadow="inset 0 0 0 1px rgba(255,255,255,0.07)" }}/>
                           </FormControl>
                           <FormMessage className="text-xs text-red-400"/>
                         </FormItem>
                       )}/>
 
+                      {/* REASON */}
                       <FormField control={form.control} name="reason" render={({field})=>(
                         <FormItem>
-                          <FormLabel className="text-[10px] font-display tracking-[0.25em] uppercase"
-                            style={{color:"hsl(280 60%70%/0.7)"}}>Reason</FormLabel>
+                          <FormLabel className="text-[10px] font-display tracking-[0.28em] uppercase"
+                            style={{ color:"hsl(280 60%72%/0.7)" }}>Reason</FormLabel>
                           <Select onValueChange={field.onChange} defaultValue={field.value}>
                             <FormControl>
-                              <SelectTrigger className="h-11 border-0 text-white font-mono text-sm"
-                                style={{background:"rgba(255,255,255,0.04)",
-                                  boxShadow:"inset 0 0 0 1px rgba(255,255,255,0.08)"}}>
-                                <SelectValue placeholder="Select a reason…"/>
+                              <SelectTrigger className="h-12 border-0 text-white font-mono text-sm rounded-xl"
+                                style={{ background:"rgba(255,255,255,0.05)",
+                                  boxShadow:"inset 0 0 0 1px rgba(255,255,255,0.07)" }}>
+                                <SelectValue placeholder="Select a category"/>
                               </SelectTrigger>
                             </FormControl>
-                            <SelectContent style={{background:"#12091e",border:"1px solid rgba(255,255,255,0.1)"}}>
+                            <SelectContent style={{ background:"#110820", border:"1px solid rgba(255,255,255,0.1)", borderRadius:"12px" }}>
                               <SelectItem value="spam">Spam / Automated Messages</SelectItem>
                               <SelectItem value="scam">Scam / Fraud</SelectItem>
                               <SelectItem value="harassment">Harassment</SelectItem>
@@ -221,45 +228,53 @@ ${d.details}
                         </FormItem>
                       )}/>
 
+                      {/* EVIDENCE */}
                       <div className="space-y-1.5">
-                        <label className="text-[10px] font-display tracking-[0.25em] uppercase"
-                          style={{color:"hsl(280 60%70%/0.7)"}}>Evidence</label>
+                        <label className="text-[10px] font-display tracking-[0.28em] uppercase"
+                          style={{ color:"hsl(280 60%72%/0.7)" }}>Evidence</label>
                         <button type="button" onClick={()=>fileRef.current?.click()}
-                          className="w-full h-20 rounded-xl flex flex-col items-center justify-center gap-2 transition-all duration-200"
-                          style={{border:"1.5px dashed rgba(255,255,255,0.1)",background:"rgba(255,255,255,0.02)"}}
-                          onMouseEnter={e=>{(e.currentTarget as HTMLButtonElement).style.borderColor="hsl(280 100%70%/0.35)";(e.currentTarget as HTMLButtonElement).style.background="hsl(280 100%60%/0.05)"}}
-                          onMouseLeave={e=>{(e.currentTarget as HTMLButtonElement).style.borderColor="rgba(255,255,255,0.1)";(e.currentTarget as HTMLButtonElement).style.background="rgba(255,255,255,0.02)"}}>
-                          <UploadCloud className="w-5 h-5" style={{color:fileName?"hsl(280 100%75%)":"rgba(255,255,255,0.2)"}}/>
-                          <span className="text-xs" style={{color:fileName?"hsl(280 100%80%)":"rgba(255,255,255,0.2)"}}>
-                            {fileName||"Click to upload a screenshot"}
+                          className="w-full h-24 rounded-xl flex flex-col items-center justify-center gap-2.5 transition-all duration-200"
+                          style={{ border:"1.5px dashed rgba(255,255,255,0.1)", background:"rgba(255,255,255,0.025)" }}
+                          onMouseEnter={e=>{ const b=e.currentTarget as HTMLButtonElement; b.style.borderColor="hsl(280 100%70%/0.35)"; b.style.background="hsl(280 100%60%/0.05)" }}
+                          onMouseLeave={e=>{ const b=e.currentTarget as HTMLButtonElement; b.style.borderColor="rgba(255,255,255,0.1)"; b.style.background="rgba(255,255,255,0.025)" }}>
+                          <UploadCloud className="w-6 h-6"
+                            style={{ color: fileName?"hsl(280 100%78%)":"rgba(255,255,255,0.22)" }}/>
+                          <span className="text-xs" style={{ color: fileName?"hsl(280 100%82%)":"rgba(255,255,255,0.22)" }}>
+                            {fileName || "Click to upload a screenshot"}
                           </span>
                         </button>
                         <input ref={fileRef} type="file" accept="image/*" className="hidden"
                           onChange={e=>setFileName(e.target.files?.[0]?.name??null)}/>
                       </div>
 
+                      {/* DETAILS */}
                       <FormField control={form.control} name="details" render={({field})=>(
                         <FormItem>
-                          <FormLabel className="text-[10px] font-display tracking-[0.25em] uppercase"
-                            style={{color:"hsl(280 60%70%/0.7)"}}>Details</FormLabel>
+                          <FormLabel className="text-[10px] font-display tracking-[0.28em] uppercase"
+                            style={{ color:"hsl(280 60%72%/0.7)" }}>Details</FormLabel>
                           <FormControl>
                             <Textarea {...field} placeholder="Explain what happened…" rows={4}
-                              className="resize-none border-0 font-mono text-sm text-white placeholder:text-white/15 leading-relaxed"
-                              style={{background:"rgba(255,255,255,0.04)",
-                                boxShadow:"inset 0 0 0 1px rgba(255,255,255,0.08)"}}
-                              onFocus={e=>{e.currentTarget.style.boxShadow="inset 0 0 0 1.5px hsl(280 100%70%/0.5)"}}
-                              onBlur={e=>{e.currentTarget.style.boxShadow="inset 0 0 0 1px rgba(255,255,255,0.08)"}}/>
+                              className="resize-none border-0 font-mono text-sm text-white placeholder:text-white/20 leading-relaxed rounded-xl"
+                              style={{ background:"rgba(255,255,255,0.05)",
+                                boxShadow:"inset 0 0 0 1px rgba(255,255,255,0.07)" }}
+                              onFocus={e=>{ e.currentTarget.style.boxShadow="inset 0 0 0 1.5px hsl(280 100%70%/0.45)" }}
+                              onBlur={e=>{ e.currentTarget.style.boxShadow="inset 0 0 0 1px rgba(255,255,255,0.07)" }}/>
                           </FormControl>
                           <FormMessage className="text-xs text-red-400"/>
                         </FormItem>
                       )}/>
 
+                      {/* SUBMIT */}
                       <button type="submit"
-                        className="w-full h-12 rounded-xl font-display tracking-[0.25em] text-xs font-bold uppercase flex items-center justify-center gap-2.5 transition-all duration-300"
-                        style={{ background:"linear-gradient(135deg,hsl(280,100%,60%),hsl(300,90%,65%))",
-                          color:"#fff", boxShadow:"0 0 24px -6px hsl(280 100%60%/0.6)" }}
-                        onMouseEnter={e=>{(e.currentTarget as HTMLButtonElement).style.boxShadow="0 0 36px -4px hsl(280 100%60%/0.8)"}}
-                        onMouseLeave={e=>{(e.currentTarget as HTMLButtonElement).style.boxShadow="0 0 24px -6px hsl(280 100%60%/0.6)"}}>
+                        className="w-full h-13 rounded-xl font-display tracking-[0.3em] text-[11px] font-bold uppercase flex items-center justify-center gap-2.5 transition-all duration-300"
+                        style={{
+                          height:"52px",
+                          background:"linear-gradient(135deg,hsl(280,100%,58%),hsl(300,90%,62%))",
+                          color:"#fff",
+                          boxShadow:"0 0 28px -6px hsl(280 100%60%/0.65)",
+                        }}
+                        onMouseEnter={e=>{ (e.currentTarget as HTMLButtonElement).style.boxShadow="0 0 40px -4px hsl(280 100%60%/0.85)"; (e.currentTarget as HTMLButtonElement).style.transform="translateY(-1px)" }}
+                        onMouseLeave={e=>{ (e.currentTarget as HTMLButtonElement).style.boxShadow="0 0 28px -6px hsl(280 100%60%/0.65)"; (e.currentTarget as HTMLButtonElement).style.transform="translateY(0)" }}>
                         <Send className="w-4 h-4"/>
                         Send Report
                       </button>
@@ -267,21 +282,25 @@ ${d.details}
                   </Form>
                 </motion.div>
               ) : (
-                <motion.div key="ok" initial={{opacity:0,scale:.95}} animate={{opacity:1,scale:1}}
-                  className="flex flex-col items-center py-10 gap-4 text-center">
+                <motion.div key="ok" initial={{opacity:0,scale:.94}} animate={{opacity:1,scale:1}}
+                  className="flex flex-col items-center py-12 gap-4 text-center">
                   <div className="w-16 h-16 rounded-full flex items-center justify-center"
-                    style={{background:"hsl(280 100%60%/0.15)", border:"1px solid hsl(280 100%70%/0.3)"}}>
-                    <CheckCircle2 className="w-8 h-8" style={{color:"hsl(280 100%75%)"}}/>
+                    style={{ background:"hsl(280 100%60%/0.12)", border:"1px solid hsl(280 100%70%/0.35)" }}>
+                    <CheckCircle2 className="w-8 h-8" style={{ color:"hsl(280 100%78%)" }}/>
                   </div>
                   <div>
-                    <p className="font-display font-bold tracking-widest text-white uppercase text-sm">Report Transmitted</p>
-                    <p className="text-xs mt-1" style={{color:"rgba(255,255,255,0.35)"}}>Sent to 39 official channels</p>
+                    <p className="font-display font-bold tracking-widest uppercase text-white text-sm">
+                      Report Transmitted
+                    </p>
+                    <p className="text-xs mt-1.5" style={{ color:"rgba(255,255,255,0.35)" }}>
+                      Sent to 39 official WhatsApp / Meta channels
+                    </p>
                   </div>
-                  <button onClick={()=>{form.reset();setSubmitted(false);setFileName(null);}}
-                    className="mt-2 h-9 px-6 rounded-lg font-display text-[10px] tracking-widest uppercase transition-all duration-200"
-                    style={{border:"1px solid hsl(280 100%70%/0.25)",color:"hsl(280 100%75%)",background:"transparent"}}
-                    onMouseEnter={e=>{(e.currentTarget as HTMLButtonElement).style.background="hsl(280 100%60%/0.1)"}}
-                    onMouseLeave={e=>{(e.currentTarget as HTMLButtonElement).style.background="transparent"}}>
+                  <button onClick={()=>{ form.reset(); setSubmitted(false); setFileName(null); }}
+                    className="mt-1 h-9 px-7 rounded-lg font-display text-[10px] tracking-widest uppercase transition-all duration-200"
+                    style={{ border:"1px solid hsl(280 100%70%/0.28)", color:"hsl(280 100%78%)", background:"transparent" }}
+                    onMouseEnter={e=>{ (e.currentTarget as HTMLButtonElement).style.background="hsl(280 100%60%/0.12)" }}
+                    onMouseLeave={e=>{ (e.currentTarget as HTMLButtonElement).style.background="transparent" }}>
                     New Report
                   </button>
                 </motion.div>
@@ -290,93 +309,47 @@ ${d.details}
           </div>
         </motion.div>
 
-        {/* ── NAV BUTTONS ── */}
-        <motion.div variants={fade} className="flex flex-col gap-3">
-          <div className="grid grid-cols-2 gap-3">
-            {/* Recovery */}
-            <Link href="/recovery">
-              <div className="rounded-2xl p-4 flex items-center gap-3 cursor-pointer transition-all duration-250"
-                style={{ background:"rgba(255,255,255,0.025)", border:"1px solid hsl(142 72%45%/0.2)",
-                  boxShadow:"0 0 20px -10px hsl(142 72%45%/0.3)" }}
-                onMouseEnter={e=>{(e.currentTarget as HTMLDivElement).style.border="1px solid hsl(142 72%45%/0.5)";(e.currentTarget as HTMLDivElement).style.background="hsl(142 72%45%/0.07)"}}
-                onMouseLeave={e=>{(e.currentTarget as HTMLDivElement).style.border="1px solid hsl(142 72%45%/0.2)";(e.currentTarget as HTMLDivElement).style.background="rgba(255,255,255,0.025)"}}>
-                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{background:"hsl(142 72%45%/0.15)", border:"1px solid hsl(142 72%45%/0.3)"}}>
-                  <RefreshCw className="w-4 h-4" style={{color:"hsl(142 72%60%)"}}/>
-                </div>
-                <div className="min-w-0">
-                  <p className="font-display text-[10px] font-bold tracking-[0.18em] uppercase truncate"
-                    style={{color:"hsl(142 72%65%)"}}>WA Recovery</p>
-                  <p className="text-[9px] mt-0.5 truncate" style={{color:"rgba(255,255,255,0.3)"}}>Recover banned account</p>
-                </div>
+        {/* ── BAN TEXTS BUTTON ── */}
+        <motion.div variants={fade}>
+          <Link href="/ban-texts">
+            <div className="rounded-2xl p-4 flex items-center gap-3.5 cursor-pointer transition-all duration-200"
+              style={{ background:"rgba(255,255,255,0.025)", border:"1px solid hsl(190 100%60%/0.18)",
+                boxShadow:"0 0 24px -12px hsl(190 100%60%/0.2)" }}
+              onMouseEnter={e=>{ const d=e.currentTarget as HTMLDivElement; d.style.border="1px solid hsl(190 100%60%/0.45)"; d.style.background="hsl(190 100%60%/0.06)" }}
+              onMouseLeave={e=>{ const d=e.currentTarget as HTMLDivElement; d.style.border="1px solid hsl(190 100%60%/0.18)"; d.style.background="rgba(255,255,255,0.025)" }}>
+              <div className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                style={{ background:"hsl(190 100%60%/0.12)", border:"1px solid hsl(190 100%60%/0.28)" }}>
+                <FileText className="w-4.5 h-4.5" style={{ color:"hsl(190 100%70%)" }}/>
               </div>
-            </Link>
-
-            {/* Ban Texts */}
-            <Link href="/ban-texts">
-              <div className="rounded-2xl p-4 flex items-center gap-3 cursor-pointer transition-all duration-250"
-                style={{ background:"rgba(255,255,255,0.025)", border:"1px solid hsl(190 100%60%/0.2)",
-                  boxShadow:"0 0 20px -10px hsl(190 100%60%/0.2)" }}
-                onMouseEnter={e=>{(e.currentTarget as HTMLDivElement).style.border="1px solid hsl(190 100%60%/0.5)";(e.currentTarget as HTMLDivElement).style.background="hsl(190 100%60%/0.07)"}}
-                onMouseLeave={e=>{(e.currentTarget as HTMLDivElement).style.border="1px solid hsl(190 100%60%/0.2)";(e.currentTarget as HTMLDivElement).style.background="rgba(255,255,255,0.025)"}}>
-                <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{background:"hsl(190 100%60%/0.15)", border:"1px solid hsl(190 100%60%/0.3)"}}>
-                  <FileText className="w-4 h-4" style={{color:"hsl(190 100%70%)"}}/>
-                </div>
-                <div className="min-w-0">
-                  <p className="font-display text-[10px] font-bold tracking-[0.18em] uppercase truncate"
-                    style={{color:"hsl(190 100%70%)"}}>Ban Texts</p>
-                  <p className="text-[9px] mt-0.5 truncate" style={{color:"rgba(255,255,255,0.3)"}}>Download ban scripts</p>
-                </div>
+              <div className="flex-1 min-w-0">
+                <p className="font-display text-[11px] font-bold tracking-[0.2em] uppercase"
+                  style={{ color:"hsl(190 100%72%)" }}>Ban Texts</p>
+                <p className="text-[10px] mt-0.5" style={{ color:"rgba(255,255,255,0.28)" }}>Download ready-to-use ban scripts</p>
               </div>
-            </Link>
-          </div>
-
-          {/* Stats — full width */}
-          <Link href="/stats">
-            <div className="rounded-2xl p-4 flex items-center gap-3.5 cursor-pointer transition-all duration-250"
-              style={{ background:"rgba(255,255,255,0.025)", border:"1px solid hsl(280 100%60%/0.2)",
-                boxShadow:"0 0 20px -10px hsl(280 100%60%/0.25)" }}
-              onMouseEnter={e=>{(e.currentTarget as HTMLDivElement).style.border="1px solid hsl(280 100%60%/0.5)";(e.currentTarget as HTMLDivElement).style.background="hsl(280 100%60%/0.07)"}}
-              onMouseLeave={e=>{(e.currentTarget as HTMLDivElement).style.border="1px solid hsl(280 100%60%/0.2)";(e.currentTarget as HTMLDivElement).style.background="rgba(255,255,255,0.025)"}}>
-              <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{background:"hsl(280 100%60%/0.15)", border:"1px solid hsl(280 100%60%/0.3)"}}>
-                <Activity className="w-4 h-4" style={{color:"hsl(280 100%75%)"}}/>
-              </div>
-              <div className="min-w-0 flex-1">
-                <p className="font-display text-[10px] font-bold tracking-[0.18em] uppercase"
-                  style={{color:"hsl(280 100%75%)"}}>Live Stats</p>
-                <p className="text-[9px] mt-0.5" style={{color:"rgba(255,255,255,0.3)"}}>
-                  Real-time activity · reports · recoveries · uptime
-                </p>
-              </div>
-              <div className="flex items-center gap-1.5 flex-shrink-0 px-2 py-1 rounded-full"
-                style={{background:"hsl(280 100%60%/0.1)", border:"1px solid hsl(280 100%60%/0.25)"}}>
-                <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{background:"hsl(280 100%75%)"}}/>
-                <span className="text-[8px] font-display tracking-widest" style={{color:"hsl(280 100%75%)"}}>LIVE</span>
-              </div>
+              <span className="text-[11px] font-mono flex-shrink-0" style={{ color:"hsl(190 100%60%/0.5)" }}>→</span>
             </div>
           </Link>
         </motion.div>
 
         {/* ── FOOTER ── */}
-        <motion.footer variants={fade} className="flex flex-col items-center gap-4 pt-2">
+        <motion.footer variants={fade} className="flex flex-col items-center gap-4 pt-1">
+          <div className="w-full h-px" style={{ background:"linear-gradient(90deg,transparent,hsl(280 100%60%/0.2),transparent)" }}/>
           <div className="flex items-center gap-3">
             {SOCIAL.map(({href,label,Icon})=>(
               <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
                 className="w-9 h-9 rounded-full flex items-center justify-center transition-all duration-200"
-                style={{background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.07)"}}
-                onMouseEnter={e=>{(e.currentTarget as HTMLAnchorElement).style.background="hsl(280 100%60%/0.15)";(e.currentTarget as HTMLAnchorElement).style.borderColor="hsl(280 100%60%/0.35)"}}
-                onMouseLeave={e=>{(e.currentTarget as HTMLAnchorElement).style.background="rgba(255,255,255,0.04)";(e.currentTarget as HTMLAnchorElement).style.borderColor="rgba(255,255,255,0.07)"}}>
-                <Icon size={15} color="rgba(255,255,255,0.4)"/>
+                style={{ background:"rgba(255,255,255,0.04)", border:"1px solid rgba(255,255,255,0.06)" }}
+                onMouseEnter={e=>{ const a=e.currentTarget as HTMLAnchorElement; a.style.background="hsl(280 100%60%/0.15)"; a.style.borderColor="hsl(280 100%60%/0.35)" }}
+                onMouseLeave={e=>{ const a=e.currentTarget as HTMLAnchorElement; a.style.background="rgba(255,255,255,0.04)"; a.style.borderColor="rgba(255,255,255,0.06)" }}>
+                <Icon size={15} color="rgba(255,255,255,0.38)"/>
               </a>
             ))}
           </div>
-          <p className="text-[10px] tracking-[0.2em]" style={{color:"rgba(255,255,255,0.15)"}}>
+          <p className="text-[10px] tracking-[0.2em]" style={{ color:"rgba(255,255,255,0.13)" }}>
             © 2025 VARNOX WA REPORT — All rights reserved.
           </p>
-          <p className="text-[9px] tracking-widest" style={{color:"rgba(255,255,255,0.1)"}}>
-            Developed by <span style={{color:"rgba(255,255,255,0.18)"}}>𝐕𝚫𝚪𝐍𝐎𝐗 𝐋𝚵𝚫𝐃 𝚻𝚵𝐂𝚮 𝚸𝚪𝚰𝚳𝚵𝚵𝚵𝚵𝚵𝚵</span>
+          <p className="text-[9px]" style={{ color:"rgba(255,255,255,0.08)" }}>
+            Developed by <span style={{ color:"rgba(255,255,255,0.16)" }}>𝐕𝚫𝚪𝐍𝐎𝐗 𝐋𝚵𝚫𝐃 𝚻𝚵𝐂𝚮</span>
           </p>
         </motion.footer>
       </motion.div>
